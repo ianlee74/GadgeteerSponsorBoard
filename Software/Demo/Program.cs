@@ -152,25 +152,23 @@ namespace Kit_Demo
 		private Joystick Input;
 		private Display_N18 Display;
 
-		private Display_N18.TinyBitmap Image;
-		private Display_N18.TinyBitmap Clear;
+		private Bitmap Image;
+		private Bitmap Clear;
 
 
 		public int X;
 
-		public Paddle(Display_N18 display, Joystick joystick)
-		{
-			this.Input = joystick;
-			this.Display = display;
-			this.X = Bouncer.SCREEN_WIDTH / 2 - Paddle.WIDTH / 2;
+        public Paddle(Display_N18 display, Joystick joystick)
+        {
+            this.Input = joystick;
+            this.Display = display;
+            this.X = Bouncer.SCREEN_WIDTH / 2 - Paddle.WIDTH / 2;
 
-			Bitmap bmp = new Bitmap(Paddle.WIDTH, Paddle.HEIGHT);
-			bmp.DrawRectangle(Gadgeteer.Color.Blue, 1, 0, 0, Paddle.WIDTH, Paddle.HEIGHT, 0, 0, Gadgeteer.Color.Blue, 0, 0, Gadgeteer.Color.Blue, Paddle.WIDTH, Paddle.HEIGHT, 0xFF);
-			this.Image = new Display_N18.TinyBitmap(bmp);
-			this.Clear = new Display_N18.TinyBitmap(new byte[Paddle.WIDTH * Paddle.HEIGHT * 2], Paddle.WIDTH, Paddle.HEIGHT);
+            this.Image = new Bitmap(Paddle.WIDTH, Paddle.HEIGHT);
+            this.Image.DrawRectangle(Gadgeteer.Color.Blue, 1, 0, 0, Paddle.WIDTH, Paddle.HEIGHT, 0, 0, Gadgeteer.Color.Blue, 0, 0, Gadgeteer.Color.Blue, Paddle.WIDTH, Paddle.HEIGHT, 0xFF);
 
-
-		}
+            this.Clear = new Bitmap(Paddle.WIDTH, Paddle.HEIGHT);
+        }
 
 		public void Tick()
 		{
@@ -200,8 +198,8 @@ namespace Kit_Demo
 
 		private static Random Rng = new Random((int)DateTime.Now.Ticks);
 
-		private Display_N18.TinyBitmap Image;
-		private Display_N18.TinyBitmap Clear;
+		private Bitmap Image;
+		private Bitmap Clear;
 
 		private Display_N18 Display;
 		private Tunes Tunes;
@@ -223,12 +221,11 @@ namespace Kit_Demo
 			this.Tunes = tunes;
             _ledLevel = ledLevel;
 
-			Bitmap bmp = new Bitmap(Ball.SIZE, Ball.SIZE);
-			bmp.DrawImage(0, 0, Resources.GetBitmap(Resources.BitmapResources.Ball), 0, 0, Ball.SIZE, Ball.SIZE);
-			this.Image = new Display_N18.TinyBitmap(bmp);
-			this.Clear = new Display_N18.TinyBitmap(new byte[Ball.SIZE * Ball.SIZE * 2], Ball.SIZE, Ball.SIZE);
-			bmp.Dispose();
-		}
+            this.Image = new Bitmap(Ball.SIZE, Ball.SIZE);
+            this.Image.DrawImage(0, 0, Resources.GetBitmap(Resources.BitmapResources.Ball), 0, 0, Ball.SIZE, Ball.SIZE);
+
+            this.Clear = new Bitmap(Ball.SIZE, Ball.SIZE);
+        }
 
 		public bool Tick(Paddle paddle)
 		{
