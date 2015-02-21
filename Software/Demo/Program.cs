@@ -29,10 +29,10 @@ namespace Kit_Demo
 		public const int SCREEN_WIDTH = 128;
 		public const int SCREEN_HEIGHT = 160;
 
-		private Display_N18 Display;
+		private DisplayN18 Display;
 		private Tunes Sound;
 		private Joystick Input;
-		private LED_Strip LED;
+		private LEDStrip LED;
         private LedLevel _ledLevel;
 //		private LightSensor Light;
         private Button lives_button;
@@ -43,7 +43,7 @@ namespace Kit_Demo
 		private DateTime StartTime;
 
 //        public Bouncer(Display_N18 display, Tunes tunes, Joystick joystick, LightSensor light, LED_Strip led, Button button)
-        public Bouncer(Display_N18 display, Tunes tunes, Joystick joystick,  LED_Strip led, Button button, LedLevel ledLevel)
+        public Bouncer(DisplayN18 display, Tunes tunes, Joystick joystick,  LEDStrip led, Button button, LedLevel ledLevel)
         {
 			this.Display = display;
 			this.Sound = tunes;
@@ -150,7 +150,7 @@ namespace Kit_Demo
 		public const int HEIGHT = 5;
 
 		private Joystick Input;
-		private Display_N18 Display;
+		private DisplayN18 Display;
 
 		private Bitmap Image;
 		private Bitmap Clear;
@@ -158,7 +158,7 @@ namespace Kit_Demo
 
 		public int X;
 
-        public Paddle(Display_N18 display, Joystick joystick)
+        public Paddle(DisplayN18 display, Joystick joystick)
         {
             this.Input = joystick;
             this.Display = display;
@@ -201,7 +201,7 @@ namespace Kit_Demo
 		private Bitmap Image;
 		private Bitmap Clear;
 
-		private Display_N18 Display;
+		private DisplayN18 Display;
 		private Tunes Tunes;
         private LedLevel _ledLevel;
 
@@ -210,7 +210,7 @@ namespace Kit_Demo
 		public int X;
 		public int Y;
 
-		public Ball(Display_N18 display, Tunes tunes, LedLevel ledLevel)
+		public Ball(DisplayN18 display, Tunes tunes, LedLevel ledLevel)
 		{
 			this.X = Bouncer.SCREEN_WIDTH / 2;
 			this.Y = Bouncer.SCREEN_HEIGHT / 2;
